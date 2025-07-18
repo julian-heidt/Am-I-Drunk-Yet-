@@ -9,7 +9,8 @@ __pycache__/
 venv/
 env/
 .venv
-.env
+# Secrets
+# .env
 
 # Build artifacts
 build/

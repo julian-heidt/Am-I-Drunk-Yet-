@@ -3,11 +3,19 @@ version: '3.8'
 services:
   web:
     build: .
-    container_name: are-you-drunk-yet
+    container_name: are-you-drunk-yet-prod
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
+    # The volume for the source code is removed for production.
+    # The code is baked into the image during the build process.
+    # volumes:
+    #   - .:/app
     environment:
+      # FLASK_ENV is not strictly necessary when using Gunicorn, but it's good practice.
       - FLASK_ENV=production
-      - PYTHONUNBUFFERED=1 
+      - PYTHONUNBUFFERED=1
+    # Load environment variables from the .env file
+    # env_file:
+    #   - .env
+    # Add a restart policy for resilience
+    restart: unless-stopped 
