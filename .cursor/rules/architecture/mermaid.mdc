@@ -1,0 +1,28 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Helps with rules for creating mermaid diagrams in markdown files
+globs: *.md
+---
+
+## Mermaid Diagrams Tips
+
+### ✅ DO
+- Create a Markdown file for each Database
+- Create a seperate diagram for each database schema
+- Create a Folder for each project in the `docs\` folder
+- Create a Folder for each root namespace in the project's doc folder
+- Create a file for each leaf namespace in the root namespace doc folder
+- Create a Markdown file for each Class in the leaf namespace folder
+- Create Mermaid diagrams and documentation for the Class in the Class Markdown file
+
+### ❌ DON'T
+- Unless requested, do not create diagrams in the root of the project repository. Always add docs to the `docs\` folder
+- Update diagrams unless requested by the user
+- Update code from diagrams unless requested by the user
+
+## Property Translation rules:
+- Nullable C# properties such as `public DateTime? PropertyName {get; set; }` should be translated into a nullable field using mermaid syntax, `DateTime PropertyName "nullable"`. The ? mark should be removed and at the end of the line add the "nullable" descriptor. If the field is a key, then the PK/FK designation should come before the "nullable" tag, like `int FrequencyId FK "nullable"`

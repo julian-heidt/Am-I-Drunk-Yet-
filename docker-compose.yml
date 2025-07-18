@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: are-you-drunk-yet
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1 
