@@ -19,6 +19,14 @@ dist/
 # IDE files
 .vscode/
 .idea/
+.vs/
+
+# Cursor
+.cursor/
+
+# Docker
+docker-compose.yml
+Dockerfile
 
 # OS-specific files
 .DS_Store
