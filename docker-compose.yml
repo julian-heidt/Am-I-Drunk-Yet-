@@ -4,8 +4,6 @@ services:
     container_name: are-you-drunk-yet-frontend
     ports:
       - "80:5001"
-    environment:
-      - API_URL=http://backend:8000
     restart: unless-stopped
 
   backend:
