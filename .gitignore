@@ -26,8 +26,8 @@ dist/
 .cursor/
 
 # Docker
-docker-compose.yml
-Dockerfile
+# docker-compose.yml
+# Dockerfile
 
 # OS-specific files
 .DS_Store
