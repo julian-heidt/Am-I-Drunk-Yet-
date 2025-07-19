@@ -1,10 +1,12 @@
 from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    api_url = os.environ.get('API_URL', 'http://localhost:8080')
+    return render_template('index.html', api_url=api_url)
 
 @app.route('/favicon.ico')
 def favicon():

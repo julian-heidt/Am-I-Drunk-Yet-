@@ -54,7 +54,9 @@ document.getElementById('bac-form').addEventListener('submit', function(event) {
         current_drinks: currentDrinks
     };
 
-    fetch('http://localhost:8080/api/calculate', {
+    const apiUrl = '{{ api_url }}' + '/api/calculate';
+
+    fetch(apiUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
