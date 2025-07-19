@@ -3,12 +3,12 @@ services:
     build: ./frontend
     container_name: are-you-drunk-yet-frontend
     ports:
-      - "5001:5001"
+      - "80:5001"
     restart: unless-stopped
 
   backend:
     build: ./backend
     container_name: are-you-drunk-yet-backend
     ports:
-      - "8000:8000"
+      - "8080:8000"
     restart: unless-stopped 
