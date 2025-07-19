@@ -8,4 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5001"] 
+# Expose the port Gunicorn will run on
+EXPOSE 5001
+
+# Use Gunicorn to run the application
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "main:app"] 
