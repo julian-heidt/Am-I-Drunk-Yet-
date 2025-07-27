@@ -15,11 +15,5 @@ scrape_configs:
     static_configs:
       - targets: ['app:5000']
     metrics_path: '/metrics'
-    scrape_interval: 5s
-    scrape_timeout: 10s
-    
-  - job_name: 'are-you-drunk-yet-health'
-    static_configs:
-      - targets: ['app:5000']
-    metrics_path: '/health'
-    scrape_interval: 30s 
+    scrape_interval: 15s
+    scrape_timeout: 10s 

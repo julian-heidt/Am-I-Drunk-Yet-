@@ -31,7 +31,10 @@ tracer = trace.get_tracer(__name__)
 FlaskInstrumentor().instrument_app(app)
 
 # --- Prometheus Metrics Setup ---
-prometheus_metrics = PrometheusMetrics(app)
+prometheus_metrics = PrometheusMetrics(app, path='/metrics')
+
+# Log that metrics endpoint is available
+logger.info("Prometheus metrics endpoint available at /metrics")
 
 # Custom business metrics
 calculation_counter = Counter(
@@ -83,6 +86,11 @@ def favicon():
 def health():
     """Health check endpoint"""
     return jsonify({"status": "healthy", "service": "are-you-drunk-yet"}), 200
+
+@app.route('/test')
+def test():
+    """Simple test endpoint to generate metrics"""
+    return jsonify({"message": "Test endpoint", "timestamp": time.time()}), 200
 
 # --- API Endpoints ---
 @app.route('/api/calculate', methods=['POST'])
@@ -179,6 +187,11 @@ def calculate_api():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     debug = os.environ.get('FLASK_ENV') == 'development'
+    
+    # Log all registered routes for debugging
+    logger.info("Registered routes:")
+    for rule in app.url_map.iter_rules():
+        logger.info(f"  {rule.rule} -> {rule.endpoint} [{', '.join(rule.methods)}]")
     
     logger.info(f"Starting Flask application on port {port}")
     app.run(host='0.0.0.0', port=port, debug=debug) 
