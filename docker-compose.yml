@@ -1,7 +1,10 @@
 services:
   app:
-    build: ./app
-    container_name: are-you-drunk-yet
+    build:
+      context: ./app
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     ports:
       - "80:5000"
     environment:
