@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeSelector.value = savedTheme;
     applyTheme(savedTheme);
 });
+
 document.getElementById('bac-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -54,9 +55,8 @@ document.getElementById('bac-form').addEventListener('submit', function(event) {
         current_drinks: currentDrinks
     };
 
-    const apiUrl = `http://192.168.1.82:8080/api/calculate`;
-
-    fetch(apiUrl, {
+    // Use same-origin API endpoint (no need for external URLs)
+    fetch('/api/calculate', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

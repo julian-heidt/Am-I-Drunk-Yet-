@@ -1,7 +1,0 @@
-fastapi
-uvicorn[standard]
-gunicorn
-python-multipart
-jinja2
-prometheus-fastapi-instrumentator
-python-json-logger 
