@@ -7,4 +7,4 @@ opentelemetry-instrumentation-flask
 opentelemetry-exporter-prometheus
 prometheus-flask-exporter
 prometheus-client
-pythonjsonlogger 
+python-json-logger 
