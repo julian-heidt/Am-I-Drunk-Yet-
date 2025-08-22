@@ -16,3 +16,4 @@ services:
 networks:
   drunk-net:
     driver: overlay
+    attachable: true
