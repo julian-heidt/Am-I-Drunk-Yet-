@@ -15,4 +15,4 @@ services:
 
 networks:
   drunk-net:
-    driver: bridge
+    driver: overlay
